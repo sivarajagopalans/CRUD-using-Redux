@@ -1,0 +1,182 @@
+/* update task */
+
+.update-form-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    background-color: rgb(137, 137, 137);
+    border-radius: 20px;
+    width: 600px;
+    height: 430px;
+    font-weight: 500;
+}
+.update-form-group h2{
+    margin-top: 30px;
+}
+
+.update-form-group .close-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.update-form-group .close-btn button{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding: 0px 20px;
+    font-size: 3rem;
+    color: black;
+    cursor: pointer;
+}
+.update-form-group .update-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    outline: none;
+    border: none;
+    padding: 20px 20px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    color: black;
+    cursor: pointer;
+
+}
+
+
+
+.update-form-group .update-btn button{
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    color: black;
+    cursor: pointer;
+    background-color: rgb(64, 0, 255);
+
+}
+
+.update-form-group .task-name {
+    display: flex;
+    flex-direction: column;
+    gap: 0 40px;
+}
+
+.update-form-group .task-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 0 40px;
+}
+
+.update-form-group .task-name label {
+    font-size: 2rem;
+}
+
+.update-form-group .task-desc label {
+    font-size: 2rem;
+}
+
+.update-form-group input[type=text] {
+    padding: 10px 20px;
+    font-size: 20px;
+    height: 55px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 500px;
+    margin-top: 15px;
+}
+
+.full-screen-popup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(255, 255, 255);
+    transition: all 1s;
+    animation-name: popout;
+}
+@keyframes popout{
+    100%{
+        transform: translateY(0px);
+       position: absolute;
+       top: 0;
+       left: 0;
+       right: 0;
+       bottom: 0;
+       background-color: rgb(255, 255, 255);
+    }
+    0%{
+        transform: translateY(-250px);
+       position: absolute;
+       top: 0;
+       left: 0;
+       right: 0;
+       bottom: 0;
+       background-color: rgb(255, 255, 255);
+    }
+}
+
+
+.box-transform{
+    animation-name: popp;
+    animation-duration: 1s;
+    animation-timing-function:ease-in-out;
+}
+
+@keyframes popp {
+    0% {
+       transform: translateY(-250px);
+       position: absolute;
+       top: 0;
+       left: 0;
+       right: 0;
+       bottom: 0;
+       background-color: rgb(255, 255, 255);
+    }
+
+    100% {
+       transform: translateY(0px);
+       position: absolute;
+       top: 0;
+       left: 0;
+       right: 0;
+       bottom: 0;
+
+    }
+ }
+
+ .popout{
+    animation-name: popout;
+    animation-duration: 1s;
+ }
+
+ @keyframes popout {
+   
+
+    100% {
+       transform: translateY(0px);
+       position: absolute;
+       top: 0;
+       left: 0;
+       right: 0;
+       bottom: 0;
+
+    }
+    0% {
+        transform: translateY(-250px);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgb(255, 255, 255);
+     }
+ }
