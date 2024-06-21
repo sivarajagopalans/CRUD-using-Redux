@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { UpdateTasks } from './UpdateTasks';
 
-export const Table = () => {
+export const TaskList = () => {
     const [updateTaskBtn,setUpdateTaskBtn]=useState(false);
     const updateTask=()=>{
         setUpdateTaskBtn(true);
