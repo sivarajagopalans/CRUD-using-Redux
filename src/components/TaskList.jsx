@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import { UpdateTasks } from './UpdateTasks';
+import { useSelector } from 'react-redux';
 
 export const TaskList = () => {
+
+    const { tasksList } = useSelector((state) => state.tasks)
+
     const [updateTaskBtn, setUpdateTaskBtn] = useState(false);
     const updateTask = () => {
         setUpdateTaskBtn(true);
@@ -21,14 +25,21 @@ export const TaskList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>code</td>
-                        <td>Write code</td>
-                        <td className='action-btn'>
-                            <button onClick={() => { updateTask() }}>🖌</button>
-                            <button onClick={() => { deleteTask() }}>🗑</button></td>
-                    </tr>
+                    {
+                        tasksList && tasksList.map((task, index) => {
+                            return (
+                                <tr key={task.id}>
+                                    <td>{index + 1}</td>
+                                    <td>{task.task}</td>
+                                    <td>{task.taskDesc}</td>
+                                    <td className='action-btn'>
+                                        <button onClick={() => { updateTask() }}>🖌</button>
+                                        <button onClick={() => { deleteTask() }}>🗑</button>
+                                    </td>
+                                </tr>
+                            )
+                        })
+                    }
                 </tbody>
             </table>
             {updateTaskBtn && <div className='box-transform'>

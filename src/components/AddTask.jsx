@@ -15,7 +15,9 @@ export const AddTask = () => {
     const addTask = (e) => {
         e.preventDefault();
         console.log({ task, taskDesc });
-        dispatch(addTaskToList({ task, taskDesc }))
+        dispatch(addTaskToList({ task, taskDesc }));
+        setTask("");
+        setTaskDesc("");
     }
 
     return (
