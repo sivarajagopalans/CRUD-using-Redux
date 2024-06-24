@@ -11,8 +11,15 @@ body {
     align-items: center;
 }
 
-h1 {
+.heading{
     text-align: center;
+    margin: 30px 0;
+}
+
+.tasks-count{
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 30px;
 }
 
 .form-group {
