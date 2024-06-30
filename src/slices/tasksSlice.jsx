@@ -11,17 +11,17 @@ const taskSlice = createSlice({
     reducers: {
 
         addTaskToList: (state, action) => {
-            let id = Math.random() * 100;
+            const id = Math.random() * 100;
             let task = { ...action.payload, id };
             state.tasksList.push(task);
         },
 
         removeTaskFromList: (state, action) => {
-            state.tasksList = state.tasksList.filter((task) => { task.id !== action.payload.id })
+            state.tasksList = state.tasksList.filter((task) => { return task.id !== action.payload.id })
         },
 
         updateTaskInList: (state, action) => {
-            state.tasksList = state.tasksList.map((task) => { task.id === action.payload.id ? action.payload : task })
+            state.tasksList = state.tasksList.map((task) => { return task.id === action.payload.id ? action.payload : task })
         },
 
         setSelectedTask: (state, action) => {
