@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import { UpdateTasks } from './UpdateTasks';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSelectedTask } from '../slices/tasksSlice';
+
 
 export const TaskList = () => {
 
-    const { tasksList } = useSelector((state) => state.tasks)
+    const { tasksList } = useSelector((state) => state.tasks);
+    const dispatch = useDispatch();
 
     const [updateTaskBtn, setUpdateTaskBtn] = useState(false);
-    const updateTask = () => {
+    const updateTask = (task) => {
         setUpdateTaskBtn(true);
+        dispatch(setSelectedTask(task));
     }
     const deleteTask = () => {
         console.log("deleteTask");
@@ -30,10 +34,10 @@ export const TaskList = () => {
                             return (
                                 <tr key={task.id}>
                                     <td>{index + 1}</td>
-                                    <td>{task.task}</td>
-                                    <td>{task.taskDesc}</td>
+                                    <td>{task.title}</td>
+                                    <td>{task.description}</td>
                                     <td className='action-btn'>
-                                        <button onClick={() => { updateTask() }}>🖌</button>
+                                        <button onClick={() => { updateTask(task) }}>🖌</button>
                                         <button onClick={() => { deleteTask() }}>🗑</button>
                                     </td>
                                 </tr>

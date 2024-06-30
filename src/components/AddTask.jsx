@@ -9,15 +9,15 @@ export const AddTask = () => {
     const dispatch = useDispatch();
     const {tasksList}=useSelector((state)=> state.tasks)
 
-    const [task, setTask] = useState('');
-    const [taskDesc, setTaskDesc] = useState('');
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
 
     const addTask = (e) => {
         e.preventDefault();
-        console.log({ task, taskDesc });
-        dispatch(addTaskToList({ task, taskDesc }));
-        setTask("");
-        setTaskDesc("");
+        console.log({ title, description });
+        dispatch(addTaskToList({ title, description }));
+        setTitle('');
+        setDescription('');
     }
 
     return (
@@ -28,15 +28,15 @@ export const AddTask = () => {
             <div className="form-group">
                 <div className="task-name">
                     <label htmlFor="task name">Task Name</label>
-                    <input type="text" placeholder='enter task name' value={task}
-                        onChange={(e) => { setTask(e.target.value) }} required />
+                    <input type="text" placeholder='enter task name' value={title}
+                        onChange={(e) => { setTitle(e.target.value) }} required />
                 </div>
                 <div className="task-desc">
                     <label htmlFor="task sesc">Task Description</label>
-                    <input type="text" placeholder='enter task description' value={taskDesc}
-                        onChange={(e) => { setTaskDesc(e.target.value) }} required />
+                    <input type="text" placeholder='enter task description' value={description}
+                        onChange={(e) => { setDescription(e.target.value) }} required />
                 </div>
-                <button type='button' onClick={addTask}>Add</button>
+                <button type='button' onClick={(e)=>addTask(e)}>Add</button>
             </div>
 
         </>
