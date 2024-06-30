@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { UpdateTasks } from './UpdateTasks';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSelectedTask } from '../slices/tasksSlice';
+import { removeTaskFromList, setSelectedTask } from '../slices/tasksSlice';
 
 
 export const TaskList = () => {
@@ -14,8 +14,9 @@ export const TaskList = () => {
         setUpdateTaskBtn(true);
         dispatch(setSelectedTask(task));
     }
-    const deleteTask = () => {
-        console.log("deleteTask");
+    const deleteTask = (task) => {
+        dispatch(removeTaskFromList(task))
+        console.log("Task deleted");
     }
     return (
         <div className='Table'>
@@ -38,7 +39,7 @@ export const TaskList = () => {
                                     <td>{task.description}</td>
                                     <td className='action-btn'>
                                         <button onClick={() => { updateTask(task) }}>🖌</button>
-                                        <button onClick={() => { deleteTask() }}>🗑</button>
+                                        <button onClick={() => { deleteTask(task) }}>🗑</button>
                                     </td>
                                 </tr>
                             )
